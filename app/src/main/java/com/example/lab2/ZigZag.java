@@ -35,18 +35,14 @@ public class ZigZag {
                 }
             }
         }
-        String resultado = numero + "|";
+        String resultado = "";
         for (int i = 0; i < lista.length; i++) {
             resultado = resultado + lista[i];
         }
         return resultado;
     }
-    public String DescifrarZig(String resultado){
-        String cifrado = resultado.substring(resultado.indexOf("|") + 1, resultado.length());
+    public String DescifrarZig(String cifrado, int linea){
         int tex = cifrado.length();
-
-        String lineas = resultado.substring(0,resultado.indexOf("|"));
-        int linea = Integer.valueOf(lineas);
 
         String[] lineazos = new String[linea];
 

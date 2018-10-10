@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int RQS_OPEN_DOCUMENT_TREE = 2;
     private static final int READ_REQUEST_CODE= 42;
     Button save,Encode,Decode;
-    EditText levels;
+    EditText levelsC,levelsD;
     Switch enDe;
     String totalName ="";
     String toPrint ="";
@@ -68,8 +68,10 @@ public class MainActivity extends AppCompatActivity {
         save = (Button)findViewById(R.id.save);
         Encode= (Button)findViewById(R.id.encode);
         Decode= (Button)findViewById(R.id.decode);
-        levels = (EditText) findViewById(R.id.niveles);
-        levels.setFilters(new InputFilter[]{ new MinMaxFilter("2", "40")});
+        levelsC= (EditText) findViewById(R.id.nivelesC);
+        levelsC.setFilters(new InputFilter[]{ new MinMaxFilter("2", "40")});
+        levelsD= (EditText) findViewById(R.id.levelsD);
+        levelsD.setFilters(new InputFilter[]{ new MinMaxFilter("2", "40")});
         Encode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -134,15 +136,17 @@ public class MainActivity extends AppCompatActivity {
                     String sUri = "";
                     sUri = readText(uri);
                     s = sUri;
-                    int niveles = 0;
-                    niveles = Integer.valueOf(levels.getText().toString());
+                    int nivelesC = 0;
+                    int nivelesD = 0;
+                    nivelesC = Integer.valueOf(levelsC.getText().toString());
+                    nivelesD = Integer.valueOf(levelsD.getText().toString());
                     if (enDe.isChecked()) {
 
-                        cifrado = zZ.ZigZag(s, niveles);
+                        cifrado = zZ.ZigZag(s, nivelesC);
 
                     }
                      else {
-                        decifrado = zZ.DescifrarZig(s);
+                        decifrado = zZ.DescifrarZig(s,nivelesD);
                     }
 
                 }
