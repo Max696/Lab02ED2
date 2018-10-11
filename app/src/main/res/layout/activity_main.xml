@@ -33,7 +33,7 @@
                 android:text="Guardar" />
 
     <EditText
-        android:id="@+id/niveles"
+        android:id="@+id/nivelesC"
         android:layout_width="189dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -43,8 +43,13 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:ems="10"
+<<<<<<< HEAD
         android:hint="Nivel"
         android:inputType="number" />
+=======
+        android:inputType="number"
+        android:text="Nivel cifrado" />
+>>>>>>> 22adfaf8929fb0fe64f6cd3b0dedc58dea868300
 
             <Button
                 android:id="@+id/decode"
@@ -67,6 +72,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
+<<<<<<< HEAD
         android:layout_marginStart="153dp"
         android:layout_marginTop="197dp"
         android:layout_marginEnd="69dp"
@@ -75,6 +81,26 @@
         android:text=""
         android:textOff="Decifrar"
         android:textOn="Cifrar" />
+=======
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="101dp"
+        android:layout_marginRight="101dp"
+        android:text="Switch" />
+>>>>>>> 22adfaf8929fb0fe64f6cd3b0dedc58dea868300
+
+    <EditText
+        android:id="@+id/levelsD"
+        android:layout_width="177dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="151dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginRight="30dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Nivel Decifrado" />
 
 
 </RelativeLayout>
