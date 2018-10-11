@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int RQS_OPEN_DOCUMENT_TREE = 2;
     private static final int READ_REQUEST_CODE= 42;
     Button save,Encode,Decode;
-    EditText levelsC,levelsD;
+    EditText levels;
     Switch enDe;
     String totalName ="";
     String toPrint ="";
@@ -71,17 +71,10 @@ public class MainActivity extends AppCompatActivity {
         save = (Button)findViewById(R.id.save);
         Encode= (Button)findViewById(R.id.encode);
         Decode= (Button)findViewById(R.id.decode);
-<<<<<<< HEAD
         levels = (EditText) findViewById(R.id.niveles);
         enDe =(Switch)findViewById(R.id.enDecode);
         enDe.setShowText(true);
         levels.setFilters(new InputFilter[]{ new MinMaxFilter("2", "100")});
-=======
-        levelsC= (EditText) findViewById(R.id.nivelesC);
-        levelsC.setFilters(new InputFilter[]{ new MinMaxFilter("2", "40")});
-        levelsD= (EditText) findViewById(R.id.levelsD);
-        levelsD.setFilters(new InputFilter[]{ new MinMaxFilter("2", "40")});
->>>>>>> 22adfaf8929fb0fe64f6cd3b0dedc58dea868300
         Encode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
                     String sUri = "";
                     sUri = readText(uri);
                     s = sUri;
-<<<<<<< HEAD
 
                     if (enDe.isChecked()) {
 
@@ -160,19 +152,6 @@ public class MainActivity extends AppCompatActivity {
 
 
                         decifrado = zZ.DescifrarZig(s,niveles);
-=======
-                    int nivelesC = 0;
-                    int nivelesD = 0;
-                    nivelesC = Integer.valueOf(levelsC.getText().toString());
-                    nivelesD = Integer.valueOf(levelsD.getText().toString());
-                    if (enDe.isChecked()) {
-
-                        cifrado = zZ.ZigZag(s, nivelesC);
-
-                    }
-                     else {
-                        decifrado = zZ.DescifrarZig(s,nivelesD);
->>>>>>> 22adfaf8929fb0fe64f6cd3b0dedc58dea868300
                     }
 
                 }

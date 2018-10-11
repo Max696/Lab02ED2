@@ -42,12 +42,7 @@ public class ZigZag {
         return resultado;
     }
     public String DescifrarZig(String cifrado, int linea){
-<<<<<<< HEAD
        int tex = cifrado.length();
-=======
-        int tex = cifrado.length();
-
->>>>>>> 22adfaf8929fb0fe64f6cd3b0dedc58dea868300
         String[] lineazos = new String[linea];
         int elementosOlas = linea * 2 - 2 ;
         int numEle = tex / elementosOlas;
