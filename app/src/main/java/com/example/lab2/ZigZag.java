@@ -15,7 +15,7 @@ public class ZigZag {
 
 
         while(!(texto.length()% numerO == 0)){
-            texto = texto + "Z";
+            texto = texto + " ";
         }
 
         for (int i = 0; i < texto.length(); i++) {
@@ -35,22 +35,15 @@ public class ZigZag {
                 }
             }
         }
-        String resultado = numero + "|";
+        String resultado = "";
         for (int i = 0; i < lista.length; i++) {
             resultado = resultado + lista[i];
         }
         return resultado;
     }
-    public String DescifrarZig(String resultado){
-        String cifrado = resultado.substring(resultado.indexOf("|") + 1, resultado.length());
-        int tex = cifrado.length();
-
-        String lineas = resultado.substring(0,resultado.indexOf("|"));
-        int linea = Integer.valueOf(lineas);
-
+    public String DescifrarZig(String cifrado, int linea){
+       int tex = cifrado.length();
         String[] lineazos = new String[linea];
-
-
         int elementosOlas = linea * 2 - 2 ;
         int numEle = tex / elementosOlas;
         String descifrado = "";

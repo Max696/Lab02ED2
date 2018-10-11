@@ -46,6 +46,9 @@ public class MainActivity extends AppCompatActivity {
     String totalName ="";
     String toPrint ="";
     ZigZag zZ= new ZigZag();
+    String s ="";
+    String cifrado ="";
+    String decifrado ="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +72,9 @@ public class MainActivity extends AppCompatActivity {
         Encode= (Button)findViewById(R.id.encode);
         Decode= (Button)findViewById(R.id.decode);
         levels = (EditText) findViewById(R.id.niveles);
-        levels.setFilters(new InputFilter[]{ new MinMaxFilter("2", "40")});
+        enDe =(Switch)findViewById(R.id.enDecode);
+        enDe.setShowText(true);
+        levels.setFilters(new InputFilter[]{ new MinMaxFilter("2", "100")});
         Encode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -112,7 +117,8 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent inten = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         inten.addCategory(Intent.CATEGORY_OPENABLE);
-        inten.setType("text/*");
+       inten.setType("*/*");
+
         startActivityForResult(inten,READ_REQUEST_CODE);
     }
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -124,37 +130,44 @@ public class MainActivity extends AppCompatActivity {
             totalName = uri.getLastPathSegment();
             String [] qw =totalName.split("/");
             toPrint += qw[qw.length-1]+"\n";
-            String cifrado ="";
-            String decifrado ="";
+            int niveles = 0;
+            niveles = Integer.valueOf(levels.getText().toString());
 
 
             try {
-                    String s ="";
+
+
                 if (requestCode == READ_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
                     String sUri = "";
                     sUri = readText(uri);
                     s = sUri;
-                    int niveles = 0;
-                    niveles = Integer.valueOf(levels.getText().toString());
+
                     if (enDe.isChecked()) {
+
 
                         cifrado = zZ.ZigZag(s, niveles);
 
                     }
                      else {
-                        decifrado = zZ.DescifrarZig(s);
+
+
+                        decifrado = zZ.DescifrarZig(s,niveles);
                     }
 
                 }
 
 
-                if (resultCode == Activity.RESULT_OK && requestCode == RQS_OPEN_DOCUMENT_TREE) {
-                    Uri uriTree = data.getData();                    String path = "";
+                if (resultCode == Activity.RESULT_OK && requestCode == RQS_OPEN_DOCUMENT_TREE&&levels!=null  ) {
+
+                    Uri uriTree = data.getData();
+                    String path = "";
                     DocumentFile documentFile = DocumentFile.fromTreeUri(this, uriTree);
                     uriTree = documentFile.getUri();
                     Uri docUri = DocumentsContract.buildDocumentUriUsingTree(uriTree,
                             DocumentsContract.getTreeDocumentId(uriTree));
                     path = getPath(this,docUri);
+
+
 
 
                     if (enDe.isChecked()) {
@@ -182,11 +195,11 @@ public class MainActivity extends AppCompatActivity {
         boolean hol = enDe.isChecked();
         String fileName="";
         if(!hol)
-        {  fileName = filename+".cif";
+        {  fileName = filename+".txt";
             toPrint+= fileName+"\n"+path;
         }
         else
-        {fileName = filename+".txt";
+        {fileName = filename+".cif";
             toPrint+= fileName+"\n"+path;
         }
 
