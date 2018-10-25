@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Gits\\ED2\\Lab2\\Lab02ED2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bg\\values-bg.xml",
+            "outputFile": "C:\\Users\\ROG\\Desktop\\Lab02ED2\\Lab02ED2\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-bg\\values-bg.xml",
             "map": [
                 {
                     "source": "C:\\Users\\ROG\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\05ff45d9ee746f2efbe99e9abe22ecef\\res\\values-bg\\values-bg.xml",
