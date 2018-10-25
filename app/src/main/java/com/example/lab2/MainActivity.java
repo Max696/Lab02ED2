@@ -41,11 +41,12 @@ public class MainActivity extends AppCompatActivity {
     private static final int RQS_OPEN_DOCUMENT_TREE = 2;
     private static final int READ_REQUEST_CODE= 42;
     Button save,Encode,Decode;
-    EditText levels;
-    Switch enDe;
+    EditText levels, key;
+    Switch enDe, zZOrSdes;
     String totalName ="";
     String toPrint ="";
     ZigZag zZ= new ZigZag();
+    SDES sdes=new SDES();
     String s ="";
     String cifrado ="";
     String decifrado ="";
@@ -70,23 +71,23 @@ public class MainActivity extends AppCompatActivity {
 
         save = (Button)findViewById(R.id.save);
         Encode= (Button)findViewById(R.id.encode);
-        Decode= (Button)findViewById(R.id.decode);
         levels = (EditText) findViewById(R.id.niveles);
+        levels.setFilters(new InputFilter[]{ new MinMaxFilter("2", "100")});
         enDe =(Switch)findViewById(R.id.enDecode);
         enDe.setShowText(true);
-        levels.setFilters(new InputFilter[]{ new MinMaxFilter("2", "100")});
+        key = (EditText) findViewById(R.id.key);
+
+        zZOrSdes =(Switch)findViewById(R.id.zzOrsdes);
+        zZOrSdes.setShowText(true);
+
+
         Encode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
               performFileSearch();
             }
         });
-        Decode.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                performFileSearch();
-            }
-        });
+
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -130,8 +131,8 @@ public class MainActivity extends AppCompatActivity {
             totalName = uri.getLastPathSegment();
             String [] qw =totalName.split("/");
             toPrint += qw[qw.length-1]+"\n";
-            int niveles = 0;
-            niveles = Integer.valueOf(levels.getText().toString());
+
+
 
 
             try {
@@ -145,13 +146,45 @@ public class MainActivity extends AppCompatActivity {
                     if (enDe.isChecked()) {
 
 
-                        cifrado = zZ.ZigZag(s, niveles);
+                        if (zZOrSdes.isChecked())
+                         {
+                             int niveles = 0;
+                             niveles = Integer.valueOf(levels.getText().toString());
+                             cifrado = zZ.ZigZag(s, niveles);
+
+
+                        }
+                        else
+                        {
+                            int Key = 0;
+                            Key = Integer.valueOf(key.getText().toString());
+                            cifrado =SDES.encrypt(s,Key);
+                          //  cifrado = zZ.ZigZag(s, niveles);
+
+                        }
+
 
                     }
                      else {
 
 
-                        decifrado = zZ.DescifrarZig(s,niveles);
+                        if (zZOrSdes.isChecked())
+                        {
+                            int niveles = 0;
+                            niveles = Integer.valueOf(levels.getText().toString());
+                            decifrado = zZ.DescifrarZig(s,niveles);
+
+                        }
+                        else
+                        {
+                            int Key = 0;
+                            Key = Integer.valueOf(key.getText().toString());
+                            decifrado = SDES.decrypt(s,Key);
+
+
+                        }
+
+
                     }
 
                 }
@@ -199,8 +232,18 @@ public class MainActivity extends AppCompatActivity {
             toPrint+= fileName+"\n"+path;
         }
         else
-        {fileName = filename+".cif";
-            toPrint+= fileName+"\n"+path;
+        {
+            if (zZOrSdes.isChecked())
+            {
+                fileName = filename+".cif";
+                toPrint+= fileName+"\n"+path;
+            }
+            else
+            {
+                fileName = filename+".scif";
+                toPrint+= fileName+"\n"+path;
+            }
+
         }
 
 
