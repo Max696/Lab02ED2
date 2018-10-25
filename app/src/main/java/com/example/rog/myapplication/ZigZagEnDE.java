@@ -1,7 +1,6 @@
-package com.example.lab2;
+package com.example.rog.myapplication;
 
-public class ZigZag {
-
+public class ZigZagEnDE {
     public String ZigZag(String texto, int numero){
 
         String[] lista = new String[numero];
@@ -42,7 +41,7 @@ public class ZigZag {
         return resultado;
     }
     public String DescifrarZig(String cifrado, int linea){
-       int tex = cifrado.length();
+        int tex = cifrado.length();
         String[] lineazos = new String[linea];
         int elementosOlas = linea * 2 - 2 ;
         int numEle = tex / elementosOlas;

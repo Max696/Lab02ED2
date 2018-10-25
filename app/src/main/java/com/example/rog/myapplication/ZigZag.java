@@ -1,4 +1,4 @@
-package com.example.lab2;
+package com.example.rog.myapplication;
 
 import android.Manifest;
 import android.annotation.TargetApi;
@@ -30,23 +30,21 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-public class MainActivity extends AppCompatActivity {
+public class ZigZag extends AppCompatActivity {
 
     private static final int PERMISSION_REQUEST_SOTARGE= 1000;
     private static final int RQS_OPEN_DOCUMENT_TREE = 2;
     private static final int READ_REQUEST_CODE= 42;
     Button save,Encode,Decode;
-    EditText levels, key;
-    Switch enDe, zZOrSdes;
+    EditText levels;
+    Switch enDe;
     String totalName ="";
     String toPrint ="";
-    ZigZag zZ= new ZigZag();
-    SDES sdes=new SDES();
+    ZigZagEnDE zZ= new ZigZagEnDE();
     String s ="";
     String cifrado ="";
     String decifrado ="";
@@ -72,19 +70,13 @@ public class MainActivity extends AppCompatActivity {
         save = (Button)findViewById(R.id.save);
         Encode= (Button)findViewById(R.id.encode);
         levels = (EditText) findViewById(R.id.niveles);
-        levels.setFilters(new InputFilter[]{ new MinMaxFilter("2", "100")});
         enDe =(Switch)findViewById(R.id.enDecode);
         enDe.setShowText(true);
-        key = (EditText) findViewById(R.id.key);
-
-        zZOrSdes =(Switch)findViewById(R.id.zzOrsdes);
-        zZOrSdes.setShowText(true);
-
-
+        levels.setFilters(new InputFilter[]{ new MinMaxFilter("2", "100")});
         Encode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              performFileSearch();
+                performFileSearch();
             }
         });
 
@@ -118,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent inten = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         inten.addCategory(Intent.CATEGORY_OPENABLE);
-       inten.setType("*/*");
+        inten.setType("*/*");
 
         startActivityForResult(inten,READ_REQUEST_CODE);
     }
@@ -131,8 +123,8 @@ public class MainActivity extends AppCompatActivity {
             totalName = uri.getLastPathSegment();
             String [] qw =totalName.split("/");
             toPrint += qw[qw.length-1]+"\n";
-
-
+            int niveles = 0;
+            niveles = Integer.valueOf(levels.getText().toString());
 
 
             try {
@@ -146,45 +138,13 @@ public class MainActivity extends AppCompatActivity {
                     if (enDe.isChecked()) {
 
 
-                        if (zZOrSdes.isChecked())
-                         {
-                             int niveles = 0;
-                             niveles = Integer.valueOf(levels.getText().toString());
-                             cifrado = zZ.ZigZag(s, niveles);
-
-
-                        }
-                        else
-                        {
-                            int Key = 0;
-                            Key = Integer.valueOf(key.getText().toString());
-                            cifrado =SDES.encrypt(s,Key);
-                          //  cifrado = zZ.ZigZag(s, niveles);
-
-                        }
-
+                        cifrado = zZ.ZigZag(s, niveles);
 
                     }
-                     else {
+                    else {
 
 
-                        if (zZOrSdes.isChecked())
-                        {
-                            int niveles = 0;
-                            niveles = Integer.valueOf(levels.getText().toString());
-                            decifrado = zZ.DescifrarZig(s,niveles);
-
-                        }
-                        else
-                        {
-                            int Key = 0;
-                            Key = Integer.valueOf(key.getText().toString());
-                            decifrado = SDES.decrypt(s,Key);
-
-
-                        }
-
-
+                        decifrado = zZ.DescifrarZig(s,niveles);
                     }
 
                 }
@@ -232,18 +192,8 @@ public class MainActivity extends AppCompatActivity {
             toPrint+= fileName+"\n"+path;
         }
         else
-        {
-            if (zZOrSdes.isChecked())
-            {
-                fileName = filename+".cif";
-                toPrint+= fileName+"\n"+path;
-            }
-            else
-            {
-                fileName = filename+".scif";
-                toPrint+= fileName+"\n"+path;
-            }
-
+        {fileName = filename+".cif";
+            toPrint+= fileName+"\n"+path;
         }
 
 

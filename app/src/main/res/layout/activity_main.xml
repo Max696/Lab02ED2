@@ -7,91 +7,41 @@
     tools:context=".MainActivity">
 
     <Button
-        android:id="@+id/encode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="19dp"
-        android:layout_marginLeft="19dp"
-        android:layout_marginTop="28dp"
-        android:text="Carga Archivo"
-        tools:layout_editor_absoluteX="37dp"
-        tools:layout_editor_absoluteY="45dp" />
+        android:id="@+id/LZW"
+        android:layout_width="96dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/RSA"
+        android:layout_alignStart="@+id/Zig-Zag"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="-13dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="194dp"
+        android:layout_marginBottom="145dp"
+        android:text="LZW"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="101dp" />
 
     <Button
-        android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginStart="26dp"
-        android:layout_marginLeft="26dp"
-        android:layout_marginTop="94dp"
-        android:text="Guardar" />
-
-    <EditText
-        android:id="@+id/niveles"
-        android:layout_width="189dp"
+        android:id="@+id/Zig-Zag"
+        android:layout_width="104dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="53dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="20dp"
-        android:ems="10"
-        android:hint="Nivel"
-        android:inputType="number" />
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="184dp"
+        android:text="Zig-Zag"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="187dp" />
 
-
-    <Switch
-        android:id="@+id/enDecode"
-        android:layout_width="162dp"
-        android:layout_height="122dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="137dp"
-        android:layout_marginTop="102dp"
-        android:layout_marginEnd="85dp"
-
-        android:layout_marginRight="85dp"
-        android:text=""
-        android:textOff="Decifrar"
-        android:textOn="Cifrar" />
-
-    <Switch
-        android:id="@+id/zzOrsdes"
-        android:layout_width="148dp"
-        android:layout_height="120dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="144dp"
-        android:layout_marginEnd="92dp"
-        android:layout_marginBottom="152dp"
-        android:text=""
-
-        android:textOff="SDES"
-        android:textOn="ZigZag"/>
-
-    <EditText
-        android:id="@+id/key"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/RSA"
+        android:layout_width="108dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="58dp"
-        android:layout_marginBottom="93dp"
-        android:ems="10"
-        android:inputType="number"
-        android:hint="Clave"
-        android:text="" />
 
-
+        android:layout_below="@+id/Zig-Zag"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="192dp"
+        android:text="RSA" />
 </RelativeLayout>
-

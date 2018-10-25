@@ -1,4 +1,4 @@
-package com.example.lab2;
+package com.example.rog.myapplication;
 
 import org.junit.Test;
 
