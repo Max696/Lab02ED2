@@ -39,7 +39,7 @@ public class RSA extends AppCompatActivity {
     String k1 = "";
     String k2 ="";
     EditText p, q ;
-    Button save;
+    Button save,toOtherView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +53,14 @@ public class RSA extends AppCompatActivity {
                 Intent intent = new Intent((Intent.ACTION_OPEN_DOCUMENT_TREE));
                 startActivityForResult(intent,RQS_OPEN_DOCUMENT_TREE);
 
+            }
+        });
+        toOtherView= (Button)findViewById(R.id.EnDeCode);
+        toOtherView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ventana = new Intent(RSA.this,RSAENDECode.class);
+                startActivity(ventana);
             }
         });
 

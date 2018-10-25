@@ -40,7 +40,7 @@ public class RSAENDECode extends AppCompatActivity {
     private static final int PERMISSION_REQUEST_SOTARGE= 1000;
     private static final int RQS_OPEN_DOCUMENT_TREE = 2;
     private static final int READ_REQUEST_CODE= 42;
-    Button save,Encode,;
+    Button save,Encode;
     EditText levels;
     Switch enDe;
     String totalName ="";
@@ -70,9 +70,9 @@ public class RSAENDECode extends AppCompatActivity {
 
         save = (Button)findViewById(R.id.save);
         Encode= (Button)findViewById(R.id.encode);
+
         levels = (EditText) findViewById(R.id.niveles);
-        enDe =(Switch)findViewById(R.id.enDecode);
-        enDe.setShowText(true);
+
 
         Encode.setOnClickListener(new View.OnClickListener() {
             @Override
