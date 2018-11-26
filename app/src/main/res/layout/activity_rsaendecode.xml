@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RSAENDECode">
+
+    <Button
+        android:id="@+id/lo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="6dp"
+        android:text="Carga Archivo"
+        tools:layout_editor_absoluteX="40dp"
+        tools:layout_editor_absoluteY="16dp" />
+
+    <Switch
+        android:id="@+id/enDecodeR"
+        android:layout_width="213dp"
+        android:layout_height="91dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="194dp"
+        android:layout_marginEnd="78dp"
+        android:layout_marginRight="78dp"
+        android:text=""
+        android:textOff="Decifrar"
+        android:textOn="Cifrar"
+        tools:layout_editor_absoluteX="173dp"
+        tools:layout_editor_absoluteY="113dp" />
+
+    <Button
+        android:id="@+id/btnsave1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginLeft="37dp"
+        android:layout_marginTop="116dp"
+        android:text="Guardar"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="231dp" />
+
+    <Switch
+        android:id="@+id/KeyOrFile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/LoadRSA"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="187dp"
+        android:text=""
+        android:textOff="Llave"
+        android:textOn="Texto"
+        tools:layout_editor_absoluteX="173dp"
+        tools:layout_editor_absoluteY="113dp" />
+</RelativeLayout>

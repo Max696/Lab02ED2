@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:onClick="IrSDES"
+        android:id="@+id/LZW"
+        android:layout_width="96dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/RSA"
+        android:layout_alignStart="@+id/max"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="181dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="151dp"
+        android:text="SDES"
+        tools:layout_editor_absoluteX="139dp"
+        tools:layout_editor_absoluteY="101dp" />
+
+    <Button
+        android:onClick="IrZig"
+        android:id="@+id/max"
+        android:layout_width="104dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="156dp"
+        android:layout_marginEnd="184dp"
+        android:text="Zig-Zag"
+        tools:layout_editor_absoluteX="148dp"
+        tools:layout_editor_absoluteY="187dp" />
+
+    <Button
+        android:onClick="IrRSA"
+        android:id="@+id/RSA"
+        android:layout_width="108dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="192dp"
+        android:text="RSA" />
+</RelativeLayout>
